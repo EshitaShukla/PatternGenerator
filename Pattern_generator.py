@@ -65,18 +65,6 @@ root.config(menu=b1)
 
 o=0
 
-def getter():
-    x2=root.winfo_rootx()+C.winfo_x()
-    y2=root.winfo_rooty()+C.winfo_y()
-    x1=x2+C.winfo_width()
-    y1=y2+C.winfo_height()
-    print(x2,y2,x1,y1)
-    I=ImageGrab.grab().crop((x2,y2,x1,y1))
-
-    filename=filedialog.askdirectory()
-    print(filename)
-    I.save(str(filename)+"/test.jpg")
-
 # color schemes
 mix=["darkorange","orange","deeppink","darkorange","darkturquoise","hotpink","deeppink","darkturquoise","aqua","orangered","turquoise","cyan"]
 
@@ -272,6 +260,19 @@ def shapet(f,lcc):
 			print(c)
 		Y12=Y34
 		X12=X34
+
+def getter():
+    x2=root.winfo_rootx()+C.winfo_x()
+    y2=root.winfo_rooty()+C.winfo_y()
+    x1=x2+C.winfo_width()
+    y1=y2+C.winfo_height()
+    print(x2,y2,x1,y1)
+    I=ImageGrab.grab().crop((x2,y2,x1,y1))
+
+    filename=filedialog.askdirectory()
+    print(filename)
+    I.save(str(filename)+"/test.jpg", subsampling=0)
+
 
 C.pack(fill="both",expand=1)
 
